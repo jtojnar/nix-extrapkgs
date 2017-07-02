@@ -4,13 +4,13 @@ let
   inherit (python3Packages) buildPythonPackage python pygobject3;
 in buildPythonPackage rec {
   name = "hamster-gtk";
-  version = "0.12-dev";
+  version = "0.12-dev-1";
 
   src = fetchFromGitHub {
     owner = "projecthamster";
     repo = "hamster-gtk";
-    rev = "68358478e3d26f3baf02211f7ef3813ed91d0a66";
-    sha256 = "1s5wf7x32drjdr5yd12n5r5d3jcjl8k8l93zfkm5fz6056ssb7pi";
+    rev = "2052604f044cfd9691ca32023b7b9cb3badca160";
+    sha256 = "18ak5mdghba9y3xih9v0fa6zk9lj4sxjqazr9ppmrq2aaqnwxnph";
   };
 
   LC_ALL = "en_US.UTF-8";
@@ -20,11 +20,6 @@ in buildPythonPackage rec {
   buildInputs = [ gtk3 python pygobject3 hamster-lib orderedset ];
 
   preBuild = "make resources";
-
-  patchPhase = ''
-    find hamster_gtk -type f -exec sed -i 's/backports\.//g' {} +
-    sed 's/find_packages()/find_packages(exclude=["tests*"])/' -i setup.py
-  '';
 
   postInstall = ''
     gappsWrapperArgs+=(--prefix PYTHONPATH : $PYTHONPATH)
