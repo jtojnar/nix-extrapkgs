@@ -9,8 +9,8 @@ in buildPythonPackage rec {
   src = fetchFromGitHub {
     owner = "projecthamster";
     repo = "hamster-gtk";
-    rev = "2052604f044cfd9691ca32023b7b9cb3badca160";
-    sha256 = "18ak5mdghba9y3xih9v0fa6zk9lj4sxjqazr9ppmrq2aaqnwxnph";
+    rev = "06fd3c833847c11f0ca31368b35c58ee9eb839fb";
+    sha256 = "0b397bilb3bs4nkdq52372992ick2p5hgbj9d8w2cwbi6xc313rk";
   };
 
   LC_ALL = "en_US.UTF-8";
